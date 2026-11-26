@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>らぼるつぼ — 川口から</title>
+<meta name="description" content="人間って、もっと面白いはず。誰もが文化の創造者になれる社会を、川口から。らぼるつぼは川口から始めるプロジェクトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111;
+    --heading: #111;
+    --body: #555;
+    --muted: #999;
+    --border: #e5e5e5;
+    --sidebar-w: 15rem;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+    color: var(--body);
+    background-color: #f7f7f5;
+    background-image: radial-gradient(#e3e3df 1px, transparent 1px);
+    background-size: 22px 22px;
+    line-height: 1.9;
+    font-size: 0.95rem;
+    padding-left: var(--sidebar-w);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: linear-gradient(180deg, #111 0%, #1c1c1c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    z-index: 100;
+  }
+  .sidebar .brand {
+    font-family: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+  }
+  .sidebar .brand-sub {
+    font-family: "Jost", sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2.5rem;
+  }
+  .sidebar nav ul { list-style: none; }
+  .sidebar nav li { margin: 0.3rem 0; }
+  .sidebar nav a {
+    display: block;
+    font-family: "Jost", sans-serif;
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    text-decoration: none;
+    padding: 0.35rem 0.5rem;
+    transition: color 0.15s ease;
+  }
+  .sidebar nav a:hover,
+  .sidebar nav a:focus { color: #fff; text-decoration: none; }
+
+  /* ---------- Sections ---------- */
+  .resume-section {
+    display: flex;
+    align-items: center;
+    padding: 5.5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 62rem;
+  }
+  .resume-section:first-of-type { min-height: 100vh; }
+  .resume-section:last-of-type { border-bottom: none; }
+  .section-content { width: 100%; }
+  .section-label {
+    display: block;
+    font-family: "Jost", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.7rem;
+  }
+  h1, h2, h3 {
+    font-family: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+    color: var(--heading);
+    line-height: 1.4;
+  }
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.8rem;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+  .subheading {
+    font-family: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--body);
+    line-height: 1.8;
+    margin-bottom: 1.8rem;
+  }
+  p { margin-bottom: 1.2rem; }
+  p.lead { font-size: 1rem; font-weight: 400; }
+  strong { color: var(--heading); font-weight: 700; }
+
+  blockquote {
+    border-left: 2px solid var(--ink);
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    margin: 1.8rem 0;
+    font-family: "Shippori Mincho B1", "Hiragino Mincho ProN", serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--heading);
+    line-height: 1.8;
+  }
+  blockquote .attr {
+    display: block;
+    font-family: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  /* ---------- Principles ---------- */
+  ul.principles { list-style: none; margin-top: 1.8rem; }
+  ul.principles li {
+    padding: 0.8rem 0 0.8rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  ul.principles li:first-child { border-top: 1px solid var(--border); }
+  ul.principles li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  /* ---------- Resume-style items (Activities) ---------- */
+  .resume-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.4rem;
+  }
+  .resume-item:last-child { margin-bottom: 0; }
+  .resume-item-content { flex: 1 1 auto; margin-right: 2rem; }
+  .resume-item-content p:last-child { margin-bottom: 0; }
+  .resume-item .subheading-sm {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 0.7rem;
+  }
+  .resume-date {
+    flex: 0 0 auto;
+    min-width: 5rem;
+    text-align: right;
+    padding-top: 0.3rem;
+  }
+  .resume-date span {
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+  }
+
+  /* ---------- Links ---------- */
+  a { color: var(--ink); text-decoration: none; }
+  a:hover { color: var(--ink); text-decoration: underline; }
+  #background p a {
+    text-decoration: underline;
+    text-decoration-color: var(--muted);
+    text-underline-offset: 0.25em;
+  }
+  #background p a:hover { text-decoration-color: var(--ink); }
+
+  /* ---------- Mobile: sidebar becomes top bar ---------- */
+  @media (max-width: 992px) {
+    body { padding-left: 0; padding-top: 4rem; }
+    .sidebar {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1.1rem;
+      text-align: left;
+    }
+    .sidebar .brand { font-size: 1.15rem; margin-bottom: 0; }
+    .sidebar .brand-sub { display: none; }
+    .sidebar nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+    .sidebar nav li { margin: 0 0.15rem; }
+    .sidebar nav a { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.3rem 0.35rem; }
+    .resume-section { padding: 3.5rem 1.5rem; }
+    .resume-section:first-of-type { min-height: auto; }
+    .resume-item { flex-direction: column; }
+    .resume-item-content { margin-right: 0; }
+    .resume-date { text-align: left; min-width: 0; order: -1; padding-top: 0; margin-bottom: 0.3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <a class="brand" href="#about">らぼるつぼ</a>
+  <div class="brand-sub">Labrutsubo</div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#background">Background</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#mechanism">Mechanism</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#now">Now</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<!-- About -->
+<section class="resume-section" id="about">
+  <div class="section-content">
+    <h1>らぼるつぼ</h1>
+    <div class="subheading">人間って、もっと面白いはず。</div>
+    <p class="lead">目指すのは、誰もが文化の創造者になれる社会です。</p>
+    <p>川口を拠点に、市民が自分で活動を始められる条件——人、場所、資源——を整えるプロジェクトです。まず、自分たちの地元から始めます。</p>
+  </div>
+</section>
+
+<!-- Vision -->
+<section class="resume-section" id="vision">
+  <div class="section-content">
+    <span class="section-label">Vision</span>
+    <h2>目指す社会</h2>
+
+    <p>何が始まるかを決めるのは、お金や人気ではなく、面白いと思う気持ちと熱量でありたい。</p>
+
+    <p>経済合理性だけでは説明のつかないことが、当たり前に始まる社会です。役に立つかどうかでは測れない企てが街のあちこちで起きて、人が出会い、関わりが生まれ、その活動が次の活動を呼んでいく。昔の江戸の町人が、実用とは別のところで物事に熱中した姿は、その一つの手がかりにすぎません。</p>
+
+    <p>コミュニティは、完成した形として固定されるものではありません。個人が動き、加わり、離れていく——その動きの中で、つながりは生まれ続けます。地域の活性化は、そうした活動が続いた先にある結果であって、参加者に求めるものではありません。</p>
+
+    <p>参加の動機は問いません。落語が好きな人、変なものを作りたい人、なんとなく地元が退屈な人。それで十分です。</p>
+
+    <blockquote>
+      金があるから始められる社会から、面白いと思うから始められる社会へ。
+    </blockquote>
+  </div>
+</section>
+
+<!-- Background -->
+<section class="resume-section" id="background">
+  <div class="section-content">
+    <span class="section-label">Background</span>
+    <h2>思想背景</h2>
+
+    <p>生きるためには、必要のないものがあります。能や茶道のように、生存にも実用にも直結しない<a href="https://ja.wikipedia.org/wiki/アレクサンドル・コジェーヴ" target="_blank" rel="noopener">形式</a>を、人はあえて磨き上げてきました。その余分さのなかにこそ、人間らしさがあるのではないか。労働だけが人間の営みではなく、<a href="https://ja.wikipedia.org/wiki/ハンナ・アーレント" target="_blank" rel="noopener">他者とともに新しいことを始める</a>こと自体が、一つの人間的なあり方なのだと思います。</p>
+
+    <p>一方で、いまの社会では、人の関心は「いいね」の数に換算され、<a href="https://ja.wikipedia.org/wiki/東浩紀" target="_blank" rel="noopener">欲望を効率よく満たす</a>方向へ最適化されています。お金を人気に置き換えても、大衆に受けるものが勝つ構造は変わりません。だからこそ、数ではない軸で物事が始まる場所が要ります。ただし、その仕組み自体も絶対ではありません。ルールも運営も、間違っていたら直せること——訂正可能性を残しておくことが、固定化への抗い方だと考えています。ネットワークも同じで、完成した構造として固定されるものではなく、個人が動き、加わり、離れていく動きの中で、コミュニティとして生まれ続けるものです。</p>
+
+    <p>この場自体も、永続を目的にはしません。求められなくなったら、無くなっても良い。祝祭のようなものでも構わないし、効率よく消費するためのものでもありません。味わうための<a href="https://ja.wikipedia.org/wiki/國分功一郎" target="_blank" rel="noopener">贅沢</a>に近いものです。資本主義を倒す話ではなく、その富と技術を使いながら、その評価軸だけでは測られない領域を、社会の中に一つ開いておく。そのための小さな実験です。</p>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="resume-section" id="values">
+  <div class="section-content">
+    <span class="section-label">Values</span>
+    <h2>大切にしていること</h2>
+
+    <ul class="principles">
+      <li><strong>対面で会う。</strong>最初の一歩は、顔を見て話すことから。</li>
+      <li><strong>まず隗より始めよ。</strong>人に言う前に、自分たちが先に始める。</li>
+      <li><strong>数で競わない。</strong>人気や反応の多さで、活動の価値を決めない。</li>
+      <li><strong>ルールは訂正可能にしておく。</strong>仕組みも決めごとも、間違っていたら直せるように。</li>
+      <li><strong>求められなくなったら、無くなっても良い。</strong>組織の存続自体を目的にしない。</li>
+      <li><strong>小さく始めて、続ける。</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Mechanism -->
+<section class="resume-section" id="mechanism">
+  <div class="section-content">
+    <span class="section-label">Mechanism</span>
+    <h2>仕組み</h2>
+
+    <p class="lead">オンラインは、入口であり道具です。目的はその先——<strong>オフラインの、実際の街での対面の活動が活発になること</strong>。画面の中で完結する仕組みは目指しません。</p>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>投稿する</h3>
+        <p>市民が「やりたいこと」を投稿します。たとえば、落語会を開きたい、といった小さな企てから。</p>
+      </div>
+      <div class="resume-date"><span>01</span></div>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>仲間が集まる</h3>
+        <p>共感した人が集まり、一人ではできなかった形になっていきます。</p>
+      </div>
+      <div class="resume-date"><span>02</span></div>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>資源とつながる</h3>
+        <p>店の空き時間、公共施設、機材や技術など、地域にある資源とマッチングします。</p>
+      </div>
+      <div class="resume-date"><span>03</span></div>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>活動が実現する</h3>
+        <p>人と場所が揃い、活動が街の中で実際に行われます。オンラインで起きた接続が、オフラインの活動を生む——その循環が、この仕組みの本体です。</p>
+      </div>
+      <div class="resume-date"><span>04</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Design -->
+<section class="resume-section" id="design">
+  <div class="section-content">
+    <span class="section-label">Design</span>
+    <h2>設計</h2>
+
+    <p>独自性は、デジタルと建築、二つの設計にあります。</p>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>計算社会科学</h3>
+        <div class="subheading-sm">誰と誰が出会うか</div>
+        <p>人気や資金力に依存しない情報推薦とマッチングを設計します。異なる関心を持つ市民同士をつなぎ、少数の活動にも機会が届き、閉じた輪にならないネットワークのあり方を、研究として検証しながら開発します。</p>
+      </div>
+      <div class="resume-date"><span>接続</span></div>
+    </div>
+
+    <div class="resume-item">
+      <div class="resume-item-content">
+        <h3>建築</h3>
+        <div class="subheading-sm">どこでどう出会うか</div>
+        <p>既存の店や公共施設を調べ、活動に合う場所を見つけて、使える形に編集します。場所の仕事は、拠点をつくる後段の話ではなく、初期の段階から担います。</p>
+      </div>
+      <div class="resume-date"><span>場所</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="resume-section" id="partners">
+  <div class="section-content">
+    <span class="section-label">Partners</span>
+    <h2>地域の事業者・自治体と</h2>
+    <p>事業者には、理念への共感ではなく、資源の提供者として参加してもらいます。空いている時間や場所、使われていない機材、技術が活動に使われることで、新しい顧客との接点も生まれます。</p>
+    <p>継続の形は、自治体からの運営委託・利用料、予約や取引の手数料、法人の利用料・広告の三つを想定しています。</p>
+  </div>
+</section>
+
+<!-- Now -->
+<section class="resume-section" id="now">
+  <div class="section-content">
+    <span class="section-label">Now</span>
+    <h2>現在地</h2>
+    <p class="lead">現在、<strong>学生団体として準備中</strong>です。</p>
+    <p>川口の各所——市、商工会議所、鋳物に関わる方々、商店街、市民活動団体——へ伺い、話を聞くヒアリングの段階にあります。</p>
+    <p>作業の出発点としては、地域の情報のデジタル化から手を付ける想定です。</p>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="resume-section" id="contact">
+  <div class="section-content">
+    <span class="section-label">Contact</span>
+    <h2>お問い合わせ</h2>
+    <p class="lead">興味を持ってもらえたら、気軽に連絡してください。一緒に何か始めたい人も、話だけ聞きたい人も、歓迎です。</p>
+    <div class="contact-lines">
+      <p>お問い合わせ：<a href="mailto:contact@labrutsubo.jp">contact@labrutsubo.jp</a></p>
+      <p>らぼるつぼ　代表：武田朋也</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
