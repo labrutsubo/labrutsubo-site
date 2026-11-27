@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>らぼるつぼ — 川口から</title>
-<meta name="description" content="人間って、もっと面白いはず。誰もが文化の創造者になれる社会を、川口から。らぼるつぼは川口から始めるプロジェクトです。">
+<title>らぼるつぼ LabRutsubo</title>
+<meta name="description" content="人間って、もっと面白いはず。誰もが文化の創造者になれる社会を。らぼるつぼ（LabRutsubo）は、市民が自分で活動を始められる条件を整えるプロジェクトです。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
@@ -212,23 +212,57 @@
   }
   #background p a:hover { text-decoration-color: var(--ink); }
 
-  /* ---------- Mobile: sidebar becomes top bar ---------- */
+  /* ---------- Hamburger (mobile only) ---------- */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: #fff;
+    margin: 5px 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ---------- Mobile: top bar + hamburger menu ---------- */
   @media (max-width: 992px) {
-    body { padding-left: 0; padding-top: 4rem; }
+    body { padding-left: 0; padding-top: 3.6rem; }
     .sidebar {
       width: 100%;
       height: auto;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0.6rem 1.1rem;
+      padding: 0.55rem 1rem;
       text-align: left;
     }
-    .sidebar .brand { font-size: 1.15rem; margin-bottom: 0; }
+    .sidebar .brand { font-size: 0.98rem; margin-bottom: 0; letter-spacing: 0.03em; }
     .sidebar .brand-sub { display: none; }
-    .sidebar nav ul { display: flex; flex-wrap: wrap; justify-content: flex-end; }
-    .sidebar nav li { margin: 0 0.15rem; }
-    .sidebar nav a { font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.3rem 0.35rem; }
+    .nav-toggle { display: block; }
+    .sidebar nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #161616;
+      padding: 0.6rem 0 1rem;
+    }
+    .sidebar nav.open { display: block; }
+    .sidebar nav ul { display: block; }
+    .sidebar nav li { margin: 0; }
+    .sidebar nav a { font-size: 0.78rem; letter-spacing: 0.14em; padding: 0.55rem 1.2rem; }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.3rem; }
+    .subheading { font-size: 0.95rem; }
     .resume-section { padding: 3.5rem 1.5rem; }
     .resume-section:first-of-type { min-height: auto; }
     .resume-item { flex-direction: column; }
@@ -242,8 +276,11 @@
 <!-- Sidebar -->
 <aside class="sidebar">
   <a class="brand" href="#about">らぼるつぼ</a>
-  <div class="brand-sub">Labrutsubo</div>
-  <nav>
+  <div class="brand-sub">LabRutsubo</div>
+  <button class="nav-toggle" id="navToggle" aria-label="メニュー" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="siteNav">
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#vision">Vision</a></li>
@@ -252,7 +289,6 @@
       <li><a href="#mechanism">Mechanism</a></li>
       <li><a href="#design">Design</a></li>
       <li><a href="#partners">Partners</a></li>
-      <li><a href="#now">Now</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -261,10 +297,10 @@
 <!-- About -->
 <section class="resume-section" id="about">
   <div class="section-content">
-    <h1>らぼるつぼ</h1>
+    <h1>らぼるつぼ <span style="font-family:'Jost',sans-serif; font-size:0.55em; font-weight:500; letter-spacing:0.12em; color:#999;">LabRutsubo</span></h1>
     <div class="subheading">人間って、もっと面白いはず。</div>
     <p class="lead">目指すのは、誰もが文化の創造者になれる社会です。</p>
-    <p>川口を拠点に、市民が自分で活動を始められる条件——人、場所、資源——を整えるプロジェクトです。まず、自分たちの地元から始めます。</p>
+    <p>市民が自分で活動を始められる条件——人、場所、資源——を整えるプロジェクトです。</p>
   </div>
 </section>
 
@@ -292,7 +328,7 @@
 <section class="resume-section" id="background">
   <div class="section-content">
     <span class="section-label">Background</span>
-    <h2>思想背景</h2>
+    <h2>背景</h2>
 
     <p>生きるためには、必要のないものがあります。能や茶道のように、生存にも実用にも直結しない<a href="https://ja.wikipedia.org/wiki/アレクサンドル・コジェーヴ" target="_blank" rel="noopener">形式</a>を、人はあえて磨き上げてきました。その余分さのなかにこそ、人間らしさがあるのではないか。労働だけが人間の営みではなく、<a href="https://ja.wikipedia.org/wiki/ハンナ・アーレント" target="_blank" rel="noopener">他者とともに新しいことを始める</a>こと自体が、一つの人間的なあり方なのだと思います。</p>
 
@@ -309,12 +345,11 @@
     <h2>大切にしていること</h2>
 
     <ul class="principles">
-      <li><strong>対面で会う。</strong>最初の一歩は、顔を見て話すことから。</li>
+      <li><strong>とにかく行動する。</strong>動かないと、マイナスもプラスもわからない。</li>
       <li><strong>まず隗より始めよ。</strong>人に言う前に、自分たちが先に始める。</li>
       <li><strong>数で競わない。</strong>人気や反応の多さで、活動の価値を決めない。</li>
-      <li><strong>ルールは訂正可能にしておく。</strong>仕組みも決めごとも、間違っていたら直せるように。</li>
+      <li><strong>訂正可能性。</strong>仕組みも決めごとも、間違っていたら直せるようにしておく。</li>
       <li><strong>求められなくなったら、無くなっても良い。</strong>組織の存続自体を目的にしない。</li>
-      <li><strong>小さく始めて、続ける。</strong></li>
     </ul>
   </div>
 </section>
@@ -382,7 +417,8 @@
       <div class="resume-item-content">
         <h3>建築</h3>
         <div class="subheading-sm">どこでどう出会うか</div>
-        <p>既存の店や公共施設を調べ、活動に合う場所を見つけて、使える形に編集します。場所の仕事は、拠点をつくる後段の話ではなく、初期の段階から担います。</p>
+        <p>建築の仕事は、建物をつくることではない。人と人が出会い、集まるための公共空間——誰のものでもなく、誰でもいられる場所の条件を整えること。</p>
+        <p>人間がいないと紡げない自然があるように、建築がないと紡げない文化が、きっとある。だから、集まって暮らす。そのための器を用意するのが、建築の役割です。</p>
       </div>
       <div class="resume-date"><span>場所</span></div>
     </div>
@@ -399,17 +435,6 @@
   </div>
 </section>
 
-<!-- Now -->
-<section class="resume-section" id="now">
-  <div class="section-content">
-    <span class="section-label">Now</span>
-    <h2>現在地</h2>
-    <p class="lead">現在、<strong>学生団体として準備中</strong>です。</p>
-    <p>川口の各所——市、商工会議所、鋳物に関わる方々、商店街、市民活動団体——へ伺い、話を聞くヒアリングの段階にあります。</p>
-    <p>作業の出発点としては、地域の情報のデジタル化から手を付ける想定です。</p>
-  </div>
-</section>
-
 <!-- Contact -->
 <section class="resume-section" id="contact">
   <div class="section-content">
@@ -423,5 +448,24 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('siteNav');
+    if (!toggle || !nav) return;
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
 </body>
 </html>
